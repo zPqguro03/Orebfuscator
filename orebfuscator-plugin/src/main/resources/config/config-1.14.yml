@@ -1,7 +1,9 @@
 version: 1
 general:
+  checkForUpdates: true
   updateOnBlockDamage: true
   bypassNotification: true
+  ignoreSpectator: false
   initialRadius: 1
   updateRadius: 2
   proximityHiderRunnerSize: 4
@@ -22,7 +24,7 @@ obfuscation:
       - chest
       - ender_chest
       - trapped_chest
-      - mob_spawner
+      - spawner
       - emerald_ore
       - diamond_ore
       - gold_ore
@@ -32,6 +34,7 @@ obfuscation:
       - redstone_ore
       - stone
       - clay
+      - shulker_box
       - white_shulker_box
       - orange_shulker_box
       - magenta_shulker_box
@@ -40,7 +43,7 @@ obfuscation:
       - lime_shulker_box
       - pink_shulker_box
       - gray_shulker_box
-      - silver_shulker_box
+      - light_gray_shulker_box
       - cyan_shulker_box
       - purple_shulker_box
       - blue_shulker_box
@@ -49,7 +52,7 @@ obfuscation:
       - red_shulker_box
       - black_shulker_box
     randomBlocks:
-      air: 45
+      cave_air : 45
       clay: 1
       coal_ore: 1
       cobblestone: 1
@@ -70,9 +73,10 @@ obfuscation:
       - chest
       - ender_chest
       - trapped_chest
-      - mob_spawner
+      - spawner
       - netherrack
-      - quartz_ore
+      - nether_quartz_ore
+      - shulker_box
       - white_shulker_box
       - orange_shulker_box
       - magenta_shulker_box
@@ -81,7 +85,7 @@ obfuscation:
       - lime_shulker_box
       - pink_shulker_box
       - gray_shulker_box
-      - silver_shulker_box
+      - light_gray_shulker_box
       - cyan_shulker_box
       - purple_shulker_box
       - blue_shulker_box
@@ -91,7 +95,7 @@ obfuscation:
       - black_shulker_box
     randomBlocks:
       netherrack: 1
-      quartz_ore: 1
+      nether_quartz_ore: 1
   - worlds:
       - world_the_end
     enabled: true
@@ -99,7 +103,8 @@ obfuscation:
       - chest
       - ender_chest
       - trapped_chest
-      - mob_spawner
+      - spawner
+      - shulker_box
       - white_shulker_box
       - orange_shulker_box
       - magenta_shulker_box
@@ -108,7 +113,7 @@ obfuscation:
       - lime_shulker_box
       - pink_shulker_box
       - gray_shulker_box
-      - silver_shulker_box
+      - light_gray_shulker_box
       - cyan_shulker_box
       - purple_shulker_box
       - blue_shulker_box
@@ -118,7 +123,7 @@ obfuscation:
       - black_shulker_box
     randomBlocks:
       end_stone: 1
-      end_bricks: 1
+      end_stone_bricks: 1
       bedrock: 1
       obsidian: 1
       purpur_block: 1
@@ -144,8 +149,19 @@ proximity:
       dispenser: {}
       enchanting_table: {}
       furnace: {}
+      blast_furnace: {}
+      cartography_table: {}
+      fletching_table: {}
+      grindstone: {}
+      composter: {}
+      lectern: {}
+      loom: {}
+      smithing_table: {}
+      smoker: {}
+      stonecutter: {}
       hopper: {}
-      mob_spawner: {}
+      spawner: {}
+      shulker_box: {}
       white_shulker_box: {}
       orange_shulker_box: {}
       magenta_shulker_box: {}
@@ -154,7 +170,7 @@ proximity:
       lime_shulker_box: {}
       pink_shulker_box: {}
       gray_shulker_box: {}
-      silver_shulker_box: {}
+      light_gray_shulker_box: {}
       cyan_shulker_box: {}
       purple_shulker_box: {}
       blue_shulker_box: {}
@@ -182,8 +198,19 @@ proximity:
       dispenser: {}
       enchanting_table: {}
       furnace: {}
+      blast_furnace: {}
+      cartography_table: {}
+      fletching_table: {}
+      grindstone: {}
+      composter: {}
+      lectern: {}
+      loom: {}
+      smithing_table: {}
+      smoker: {}
+      stonecutter: {}
       hopper: {}
-      mob_spawner: {}
+      spawner: {}
+      shulker_box: {}
       white_shulker_box: {}
       orange_shulker_box: {}
       magenta_shulker_box: {}
@@ -192,7 +219,7 @@ proximity:
       lime_shulker_box: {}
       pink_shulker_box: {}
       gray_shulker_box: {}
-      silver_shulker_box: {}
+      light_gray_shulker_box: {}
       cyan_shulker_box: {}
       purple_shulker_box: {}
       blue_shulker_box: {}
@@ -202,7 +229,7 @@ proximity:
       black_shulker_box: {}
     randomBlocks:
       netherrack: 4
-      quartz_ore: 1
+      nether_quartz_ore: 1
   - worlds:
       - world_the_end
     enabled: true
@@ -221,8 +248,19 @@ proximity:
       dispenser: {}
       enchanting_table: {}
       furnace: {}
+      blast_furnace: {}
+      cartography_table: {}
+      fletching_table: {}
+      grindstone: {}
+      composter: {}
+      lectern: {}
+      loom: {}
+      smithing_table: {}
+      smoker: {}
+      stonecutter: {}
       hopper: {}
-      mob_spawner: {}
+      spawner: {}
+      shulker_box: {}
       white_shulker_box: {}
       orange_shulker_box: {}
       magenta_shulker_box: {}
@@ -231,7 +269,7 @@ proximity:
       lime_shulker_box: {}
       pink_shulker_box: {}
       gray_shulker_box: {}
-      silver_shulker_box: {}
+      light_gray_shulker_box: {}
       cyan_shulker_box: {}
       purple_shulker_box: {}
       blue_shulker_box: {}
