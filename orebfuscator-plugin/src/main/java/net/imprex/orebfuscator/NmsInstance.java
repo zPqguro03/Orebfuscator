@@ -14,6 +14,7 @@ import net.imprex.orebfuscator.config.Config;
 import net.imprex.orebfuscator.nms.AbstractRegionFileCache;
 import net.imprex.orebfuscator.nms.BlockStateHolder;
 import net.imprex.orebfuscator.nms.NmsManager;
+import net.imprex.orebfuscator.nms.ReadOnlyChunk;
 import net.imprex.orebfuscator.util.BlockPos;
 import net.imprex.orebfuscator.util.MinecraftVersion;
 import net.imprex.orebfuscator.util.OFCLogger;
@@ -28,7 +29,7 @@ public class NmsInstance {
 		}
 
 		String nmsVersion = MinecraftVersion.getNmsVersion();
-		OFCLogger.info("Searching NMS adapter for server version \"" + nmsVersion + "\"!");
+		OFCLogger.debug("Searching NMS adapter for server version \"" + nmsVersion + "\"!");
 
 		try {
 			String className = "net.imprex.orebfuscator.nms." + nmsVersion + ".NmsManager";
@@ -41,7 +42,7 @@ public class NmsInstance {
 			throw new RuntimeException("Couldn't initialize NMS adapter", e);
 		}
 
-		OFCLogger.info("NMS adapter for server version \"" + nmsVersion + "\" found!");
+		OFCLogger.debug("NMS adapter for server version \"" + nmsVersion + "\" found!");
 	}
 
 	public static AbstractRegionFileCache<?> getRegionFileCache() {
@@ -52,7 +53,7 @@ public class NmsInstance {
 		return instance.getBitsPerBlock();
 	}
 
-	public static int getMaterialSize() {
+	public static int getTotalBlockCount() {
 		return instance.getTotalBlockCount();
 	}
 
@@ -89,16 +90,16 @@ public class NmsInstance {
 		return instance.isTileEntity(blockId);
 	}
 
+	public static ReadOnlyChunk getReadOnlyChunk(World world, int chunkX, int chunkZ) {
+		return instance.getReadOnlyChunk(world, chunkX, chunkZ);
+	}
+
 	public static BlockStateHolder getBlockState(World world, Block block) {
 		return instance.getBlockState(world, block.getX(), block.getY(), block.getZ());
 	}
 
 	public static BlockStateHolder getBlockState(World world, int x, int y, int z) {
 		return instance.getBlockState(world, x, y, z);
-	}
-
-	public static int loadChunkAndGetBlockId(World world, int x, int y, int z) {
-		return instance.loadChunkAndGetBlockId(world, x, y, z);
 	}
 
 	public static boolean sendBlockChange(Player player, BlockPos blockCoords) {

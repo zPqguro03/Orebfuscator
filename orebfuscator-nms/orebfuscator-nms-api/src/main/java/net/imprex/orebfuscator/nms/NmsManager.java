@@ -29,9 +29,9 @@ public interface NmsManager {
 
 	boolean isTileEntity(int blockId);
 
-	BlockStateHolder getBlockState(World world, int x, int y, int z);
+	ReadOnlyChunk getReadOnlyChunk(World world, int chunkX, int chunkZ);
 
-	int loadChunkAndGetBlockId(World world, int x, int y, int z);
+	BlockStateHolder getBlockState(World world, int x, int y, int z);
 
 	boolean sendBlockChange(Player player, int x, int y, int z);
 

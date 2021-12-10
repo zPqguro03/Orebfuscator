@@ -16,6 +16,7 @@ import net.imprex.orebfuscator.config.Config;
 import net.imprex.orebfuscator.nms.AbstractBlockState;
 import net.imprex.orebfuscator.nms.AbstractNmsManager;
 import net.imprex.orebfuscator.nms.AbstractRegionFileCache;
+import net.imprex.orebfuscator.nms.ReadOnlyChunk;
 import net.minecraft.server.v1_13_R2.Block;
 import net.minecraft.server.v1_13_R2.BlockPosition;
 import net.minecraft.server.v1_13_R2.Chunk;
@@ -125,15 +126,16 @@ public class NmsManager extends AbstractNmsManager {
 	}
 
 	@Override
-	public AbstractBlockState<?> getBlockState(World world, int x, int y, int z) {
-		IBlockData blockData = getBlockData(world, x, y, z, false);
-		return blockData != null ? new BlockState(x, y, z, world, blockData) : null;
+	public ReadOnlyChunk getReadOnlyChunk(World world, int chunkX, int chunkZ) {
+		ChunkProviderServer chunkProviderServer = world(world).getChunkProvider();
+		Chunk chunk = chunkProviderServer.getChunkAt(chunkX, chunkZ, true, false);
+		return new ReadOnlyChunkWrapper(chunk);
 	}
 
 	@Override
-	public int loadChunkAndGetBlockId(World world, int x, int y, int z) {
-		IBlockData blockData = getBlockData(world, x, y, z, true);
-		return blockData != null ? getBlockId(blockData) : -1;
+	public AbstractBlockState<?> getBlockState(World world, int x, int y, int z) {
+		IBlockData blockData = getBlockData(world, x, y, z, false);
+		return blockData != null ? new BlockState(x, y, z, world, blockData) : null;
 	}
 
 	@Override

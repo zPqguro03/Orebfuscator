@@ -6,6 +6,8 @@ public interface Config {
 
 	GeneralConfig general();
 
+	AdvancedConfig advanced();
+
 	CacheConfig cache();
 
 	BlockFlags blockFlags(World world);
@@ -18,5 +20,5 @@ public interface Config {
 
 	ProximityConfig proximity(World world);
 
-	byte[] configHash();
+	byte[] systemHash();
 }
