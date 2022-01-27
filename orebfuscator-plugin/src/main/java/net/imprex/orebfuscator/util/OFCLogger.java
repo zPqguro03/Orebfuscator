@@ -44,8 +44,15 @@ public class OFCLogger {
 	/**
 	 * Log an error
 	 */
-	public static void err(Throwable e) {
+	public static void error(Throwable e) {
 		log(Level.SEVERE, e.getMessage(), e);
+	}
+
+	/**
+	 * Log an error
+	 */
+	public static void error(String message, Throwable e) {
+		log(Level.SEVERE, message, e);
 	}
 
 	/**
