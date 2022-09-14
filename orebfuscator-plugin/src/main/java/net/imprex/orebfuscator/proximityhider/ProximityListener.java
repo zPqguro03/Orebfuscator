@@ -48,9 +48,4 @@ public class ProximityListener implements Listener {
 	public void onPlayerMove(PlayerMoveEvent event) {
 		this.proximityHider.queuePlayerUpdate(event.getPlayer());
 	}
-
-	@EventHandler
-	public void onBlockBreak(BlockBreakEvent event) {
-		this.proximityHider.queuePlayerUpdate(event.getPlayer());
-	}
 }
